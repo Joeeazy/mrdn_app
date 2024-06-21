@@ -1,4 +1,5 @@
 import React from "react";
+import AuthDetails from "./AuthDetails";
 
 export default function Hero_Section() {
   return (
@@ -15,6 +16,7 @@ export default function Hero_Section() {
               informs. Join Meridian today and be a part of the next wave in
               social video innovation.
             </p>
+            <AuthDetails />
             <input
               type="file"
               className="file-input file-input-bordered file-input-primary w-full max-w-xs"
