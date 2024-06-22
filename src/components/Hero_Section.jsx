@@ -1,5 +1,6 @@
 import React from "react";
 import AuthDetails from "./AuthDetails";
+import Uploads from "./Uploads";
 
 export default function Hero_Section() {
   return (
@@ -17,10 +18,7 @@ export default function Hero_Section() {
               social video innovation.
             </p>
             <AuthDetails />
-            <input
-              type="file"
-              className="file-input file-input-bordered file-input-primary w-full max-w-xs"
-            />
+            <Uploads />
           </div>
         </div>
       </div>
