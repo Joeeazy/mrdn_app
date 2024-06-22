@@ -8,8 +8,12 @@ import { useEffect } from "react";
 export default function Uploads() {
   const [videoUpload, setvideoUpload] = useState(null);
   const [videoList, setVideoList] = useState([]);
+  const [loading, setIsLoading] = useState(false);
+
   const imageListRef = ref(storage, "images/");
+
   const uploadVideo = () => {
+    setIsLoading(true);
     if (videoUpload == null) return;
     // videos folder
     const videoRef = ref(storage, `videos/${videoUpload.name + v4()}`);
@@ -21,17 +25,27 @@ export default function Uploads() {
       //if successfull
       //alert("Video Uploaded");
     });
+
+    fetch("https://dev.api.mrdn.app/api/v1/post", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(videoList),
+    }).then(() => {
+      console.log("Video sent");
+      setIsLoading(true);
+    });
   };
 
-  useEffect(() => {
-    listAll(imageListRef).then((response) => {
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setVideoList((prev) => [...prev, url]);
-        });
-      });
-    });
-  }, []);
+  //upload firebase storage contents to this api
+  // fetch('https://dev.api.mrdn.app/api/v1/post', {
+  // 			method: 'POST',
+  // 			body: formData,
+  // 			headers: { 'Authorization': `Bearer ${bearerToken}` }
+  // 		})
+  // 			.then((response) => response.json())
+  // 			.then((json) => console.log(json));
+
+  useEffect(() => {}, []);
   return (
     <div className="mt-5">
       <div className="flex">
