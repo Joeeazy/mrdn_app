@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { auth } from "../firebase/firebase_auth";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-
+import Uploads from "./Uploads";
+import Login from "./Login";
 export default function AuthDetails() {
   const [authuser, setAuthUser] = useState(null);
   useEffect(() => {
@@ -36,9 +37,15 @@ export default function AuthDetails() {
           >
             Sign Out
           </button>
+          <Uploads authUser={authuser} />
         </div>
       ) : (
-        <p>Signed Out</p>
+        <div>
+          <p className="text-xl font-semibold">
+            Please Sign In to Upload Videos
+          </p>
+          <Login />
+        </div>
       )}
     </div>
   );

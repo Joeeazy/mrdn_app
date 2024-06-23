@@ -18,7 +18,6 @@ export default function Hero_Section() {
               social video innovation.
             </p>
             <AuthDetails />
-            <Uploads />
           </div>
         </div>
       </div>
