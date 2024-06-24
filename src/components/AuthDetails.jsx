@@ -17,15 +17,15 @@ export default function AuthDetails() {
     return () => listen();
   }, []);
 
-  const userSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        console.log("sign Out success");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const userSignOut = () => {
+  //   signOut(auth)
+  //     .then(() => {
+  //       //console.log("sign Out success");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
   return (
     <div>
       {authuser ? (
